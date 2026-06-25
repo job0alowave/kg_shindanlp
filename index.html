@@ -9,37 +9,30 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans JP',sans-serif;background:#0a0a0a;color:#e8e6e1;line-height:1.9;-webkit-font-smoothing:antialiased}
 .container{max-width:560px;margin:0 auto;padding:24px 20px 100px}
-
 .progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#1d9e75,#5dcaa5);transition:width .4s ease;z-index:100}
 .progress-text{text-align:center;font-size:12px;color:#5a5a5a;margin-bottom:20px;letter-spacing:.5px}
-
 h1{font-size:24px;font-weight:700;text-align:center;margin:48px 0 12px;line-height:1.5;letter-spacing:-.5px}
 .subtitle{text-align:center;color:#5a5a5a;font-size:13px;margin-bottom:48px;letter-spacing:1px}
-
 .profile{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px}
 .profile img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #222}
 .profile-name{font-size:12px;color:#5a5a5a;letter-spacing:.5px}
-
 .intro-lead{font-size:15px;line-height:2;margin-bottom:32px;color:#b0ada6}
 .intro-lead p{margin-bottom:14px}
-
 .type-list{margin:28px 0 40px;border:1px solid #1a1a1a;border-radius:16px;overflow:hidden;background:#111}
 .type-item{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #1a1a1a;font-size:13px;color:#b0ada6}
 .type-item:last-child{border-bottom:none}
 .type-badge{flex-shrink:0;background:#0f2e22;color:#1d9e75;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;letter-spacing:.5px}
-
 .time-note{text-align:center;color:#3a3a3a;font-size:12px;margin-bottom:24px;letter-spacing:.5px}
-
 .start-btn{display:block;width:100%;background:#1d9e75;color:#fff;font-size:15px;font-weight:500;padding:18px;border:none;border-radius:14px;cursor:pointer;transition:all .3s;letter-spacing:.5px}
 .start-btn:hover{background:#24b888;transform:translateY(-1px)}
-
 .question-card{background:#111;border:1px solid #1a1a1a;border-radius:16px;padding:28px 24px;margin-bottom:16px;display:none}
 .question-card.active{display:block}
 .q-number{font-size:11px;color:#1d9e75;font-weight:500;margin-bottom:12px;letter-spacing:1px}
 .q-text{font-size:16px;font-weight:500;margin-bottom:24px;line-height:1.7;color:#e8e6e1}
 .option{display:block;width:100%;text-align:left;background:#0a0a0a;border:1px solid #222;border-radius:12px;padding:16px 18px;margin-bottom:10px;font-size:13px;line-height:1.7;color:#b0ada6;cursor:pointer;transition:all .2s}
 .option:hover{border-color:#1d9e75;background:#0f2e22;color:#e8e6e1}
-
+.back-btn{display:inline-block;margin-top:12px;padding:10px 20px;font-size:12px;color:#5a5a5a;background:none;border:1px solid #222;border-radius:8px;cursor:pointer;transition:all .2s;letter-spacing:.5px}
+.back-btn:hover{color:#b0ada6;border-color:#444}
 #result{display:none}
 .result-card{background:#111;border:1px solid #1a1a1a;border-radius:16px;padding:36px 28px;margin-bottom:28px}
 .result-type{font-size:11px;color:#1d9e75;font-weight:500;margin-bottom:8px;letter-spacing:1px}
@@ -51,7 +44,6 @@ h1{font-size:24px;font-weight:700;text-align:center;margin:48px 0 12px;line-heig
 .result-steps p{font-weight:500;margin-bottom:14px;font-size:13px;color:#1d9e75;letter-spacing:.5px}
 .result-steps li{margin-bottom:10px;font-size:13px;line-height:1.8;color:#b0ada6}
 .result-note{font-size:13px;color:#5a5a5a;margin-top:16px}
-
 .cta-box{background:linear-gradient(135deg,#0f3d2e,#1d9e75);border-radius:16px;padding:36px 28px;text-align:center;margin-top:36px}
 .cta-profile{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px}
 .cta-profile img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2)}
@@ -70,19 +62,19 @@ h1{font-size:24px;font-weight:700;text-align:center;margin:48px 0 12px;line-heig
 <div id="intro">
 <div class="profile"><img src="icon.jpeg" alt="けーじー"><span class="profile-name">けーじー｜夜1時間の届け方</span></div>
 <h1>夜1時間、<br>どこで詰まっていますか？</h1>
-<p class="subtitle">20問でわかる 4タイプ診断</p>
+<p class="subtitle">10問でわかる 4タイプ診断</p>
 <div class="intro-lead">
 <p>本業・育児・家事に追われて、使えるのは夜1時間だけ。</p>
 <p>「何かを始めたい。でも何から始めればいいか分からない。」</p>
 <p>その詰まりの原因は、4タイプに分かれます。</p>
 </div>
 <div class="type-list">
-<div class="type-item"><span class="type-badge">TYPE 1</span>ジャンル迷子 — 何を発信すればいいか決まっていない</div>
-<div class="type-item"><span class="type-badge">TYPE 2</span>書けない壁 — テーマはあるが書けない・続かない</div>
-<div class="type-item"><span class="type-badge">TYPE 3</span>届かない迷路 — 書けているが読まれない・売れない</div>
-<div class="type-item"><span class="type-badge">TYPE 4</span>仕組み化不足 — 売れているが消耗している</div>
+<div class="type-item"><span class="type-badge">TYPE 1</span>何から始めればいいか分からない</div>
+<div class="type-item"><span class="type-badge">TYPE 2</span>やりたいことはあるけど動けない</div>
+<div class="type-item"><span class="type-badge">TYPE 3</span>動いてるけど成果が出ない</div>
+<div class="type-item"><span class="type-badge">TYPE 4</span>成果は出てるけど消耗してる</div>
 </div>
-<p class="time-note">所要時間：約3分</p>
+<p class="time-note">所要時間：約1分</p>
 <button class="start-btn" onclick="startQuiz()">無料で診断する</button>
 </div>
 
@@ -96,37 +88,28 @@ h1{font-size:24px;font-weight:700;text-align:center;margin:48px 0 12px;line-heig
 
 <script>
 const questions = [
-{q:"今、定期的に発信できていますか？",a:"何を発信すればいいかわからず、投稿がほぼゼロ",b:"投稿しようとするたびに手が止まって、結局書けていない",c:"週数回は投稿できているが、反応がほぼない",d:"投稿も売上も出ているが、作業量が多くて疲れている"},
-{q:"プロフィールを他人に見せたとき、どう感じますか？",a:"テーマが決まっていないので書けない",b:"何度も書き直して結局中途半端のまま",c:"書いたが、フォロワーが増えない",d:"整っているが、毎回手動で微調整していて手間"},
-{q:"直近1ヶ月でnoteを公開した本数は？",a:"0本。テーマが決まらない",b:"書きかけが3本以上あるが完成していない",c:"3本以上公開できているが売上ほぼゼロ",d:"売れている記事はあるが次の商品設計に手が回らない"},
-{q:"発信テーマについて、今どんな状態ですか？",a:"複数の候補があって絞れない",b:"決めても、いざ書くと手が止まる",c:"テーマは決まっていて書けるが刺さらない",d:"テーマは確立しているが時間がかかりすぎる"},
-{q:"「夜1時間の作業」で実際にやっていることは？",a:"何をすればいいかわからず調べるだけで終わる",b:"導入部分で詰まって1時間が過ぎる",c:"書けているが反応を確認してため息をついて終わる",d:"作業は進んでいるが毎晩同じ作業の繰り返し"},
-{q:"AIを使ったことがありますか？",a:"何を聞けばいいかわからずやめた",b:"文章を書かせると自分らしくない",c:"文章生成には使えるが集客に活かせていない",d:"使いこなしているが自動化できていない"},
-{q:"AIに「記事を書いて」と頼んだとき、どうなりましたか？",a:"テーマ自体が決まっていなくて質問できなかった",b:"書いてもらったが「自分の言葉じゃない」とボツにした",c:"記事は完成したが読まれなかった",d:"量産できるがクオリティのばらつきが気になる"},
-{q:"AIへの指示（プロンプト）について今どんな状態？",a:"うまく使えた経験がない",b:"工夫しているが毎回出力がバラバラ",c:"安定してきたが導線設計には応用できていない",d:"テンプレートはあるが更新管理が手間"},
-{q:"AIを「壁打ち相手」として使ったことは？",a:"やり方がわからない",b:"やってみたがAIの回答が的外れで諦めた",c:"壁打ちできているが記事に活かしきれていない",d:"日常的にできているが記録再利用の仕組みがない"},
-{q:"AI活用で「うまくいった」と思えた経験は？",a:"まだない",b:"一度だけあったが再現できていない",c:"記事を書く場面では再現できるが売上には…",d:"再現性はあるが自分が毎回やらないといけない"},
-{q:"夜1時間の使い方で、いちばん近い状態は？",a:"「何をすべきか」が決まらず終わる",b:"「書く」ことに使いたいが書けず終わる",c:"投稿や記事は書けるが結果につながらない",d:"作業はできるが毎晩作業しないと止まる"},
-{q:"本業・育児・家事以外の時間は確保できていますか？",a:"平日はほぼゼロ",b:"夜1時間は確保できるが集中力が続かない",c:"夜1〜2時間使えるが優先順位がバラバラ",d:"時間はあるが作業が増えて足りなくなってきた"},
-{q:"「今夜何をすればいいか」を決めるのにどのくらいかかる？",a:"毎晩30分以上。決められないまま終わることも",b:"やることは決まるが別の作業に迷い込む",c:"決めること自体は早いが正しい作業か不安",d:"ルーティンはあるがその見直しに時間を使えていない"},
-{q:"「夜1時間」の理想の使い方として近いのは？",a:"まず「方向性を決める」ことに使いたい",b:"「書く」ことだけに集中できる状態にしたい",c:"「書く」から「届ける・売る」設計にシフトしたい",d:"「判断・承認するだけ」にして仕組みに任せたい"},
-{q:"今、販売している商品・サービスはありますか？",a:"ない。何を売ればいいかもわからない",b:"作りかけのnoteはあるが完成していない",c:"公開しているがほぼ売れていない",d:"売れているがバリエーションや価格帯を見直したい"},
-{q:"「自分の経験をコンテンツにする」イメージは？",a:"自分には売れるものがないと思っている",b:"何かあるはずだが言語化できていない",c:"言語化はできたが購入してもらえるか自信がない",d:"商品はあるが導線・ステップ設計がまだ粗い"},
-{q:"「300円のnote」を今すぐ出すとしたら、いちばんの障壁は？",a:"テーマが決まらないので何も書けない",b:"どこから始めればいいかわからなくなる",c:"書いて出したが誰にも見つけてもらえなかった",d:"出せるが毎回ゼロから書いていて消耗している"},
-{q:"「やめようかな」と思ったのはどんな瞬間？",a:"何をすればいいかわからなくてスタートできていない",b:"書こうとするたびに止まって「向いていないかも」",c:"投稿も書けているのにまったく反応がなかったとき",d:"作業量が多すぎて「これが続くのか」と感じたとき"},
-{q:"3ヶ月後に変わるには、今何が足りない？",a:"発信テーマとポジションが決まっていない",b:"書き続ける仕組みと書き方のパターン",c:"書けているのに届かない理由がわかっていない",d:"仕組みを自動化して消耗しない設計"},
-{q:"今、いちばん正直な気持ちは？",a:"「何から始めればいいか教えてほしい」",b:"「とにかく書けるようになりたい」",c:"「書けているのになぜ売れないのか知りたい」",d:"「もっとラクに成果を出す設計を知りたい」"}
+{q:"子どもが寝たあとの時間、何をしていますか？",a:"スマホをなんとなく見て終わる",b:"やりたいことはあるけど手が動かない",c:"作業はしてるけど成果が出ない",d:"作業してるけど毎晩疲れる"},
+{q:"「何かを始めたい」と思ったことはありますか？",a:"思うけど、何を始めればいいか分からない",b:"やりたいことはあるけど、最初の一歩が出ない",c:"始めてるけど、うまくいってない",d:"やってるけど、続けるのがしんどい"},
+{q:"自分の時間、1日にどのくらいありますか？",a:"ほぼゼロ。考える余裕もない",b:"夜に30分〜1時間あるけど、使い方が分からない",c:"時間は確保できてるけど、結果につながらない",d:"時間はあるけど、やることが多すぎて足りない"},
+{q:"AIを使ったことはありますか？",a:"聞いたことはあるけど触ったことがない",b:"使ってみたけど、うまく使えなかった",c:"使えてるけど、それをお金にする方法が分からない",d:"使いこなしてるけど、毎回自分でやらないといけない"},
+{q:"「自分にできることがある」と思えますか？",a:"正直、何もないと思ってる",b:"何かあるはずだけど、言葉にできない",c:"できることはあるけど、求められてる感じがしない",d:"できることは分かってるけど、時間が足りない"},
+{q:"収入について、正直な気持ちは？",a:"もう1つ収入源がほしいけど、何をすれば…",b:"やりたいことはあるけど、お金になる気がしない",c:"少し動いてるけど、まだ1円にもなってない",d:"お金にはなってるけど、不安定で消耗してる"},
+{q:"夫や家族に「やりたいこと」を話せていますか？",a:"まだ自分でも分かってないから話せない",b:"心の中にはあるけど、笑われそうで言えない",c:"話してるけど、「で、いくらになったの」と聞かれる",d:"理解してもらえてるけど、家事との両立がきつい"},
+{q:"今の一番の壁は？",a:"何をすればいいか分からないこと",b:"分かってるのに動けないこと",c:"動いてるのに結果が出ないこと",d:"結果は出てるのに楽にならないこと"},
+{q:"3ヶ月後、どうなっていたい？",a:"「これをやる」が決まっていたい",b:"毎週何かを作れる自分になりたい",c:"作ったものが誰かに届いていたい",d:"自分がいなくても回る仕組みがほしい"},
+{q:"今、いちばん正直な気持ちは？",a:"何から始めればいいか教えてほしい",b:"とにかく最初の一歩を踏み出したい",c:"やってるのに報われない理由を知りたい",d:"もっとラクに続ける方法を知りたい"}
 ];
 
 const results = {
-a:{type:"TYPE 1",name:"ジャンル迷子",keyword:"テーマ",title:"「何を発信すればいいか決まっていない」あなたへ",body:`<p>これは「センスの問題」でも「あなたが特別じゃない問題」でもありません。</p><p>ジャンルが決まらない理由は、<strong>今の自分がどのステージにいるか見えていないから</strong>です。</p><p>テーマを探す前に「自分は今どこにいるのか」が分かっていないと、何を選んでも不安なまま進むことになります。</p>`,steps:["「発信ステージ診断シート」で今の自分のステージを確認する","自分のステージで「次にやること1つ」を特定する","それだけやる。テーマの決め方は、ステージが分かってから"],present:"発信ステージ診断シート",note:"コンセプトの決め方を詳しく知りたくなったら、300円noteに全部書いてあります。"},
-b:{type:"TYPE 2",name:"書けない壁",keyword:"書けない",title:"「テーマはある。でも書けない・続かない」あなたへ",body:`<p>「書こうとすると止まる」——これ、意志の問題じゃないです。</p><p>止まるのは、<strong>頭の中に素材がないまま書こうとしているから</strong>です。</p><p>書き始める前にまずAIと話す。命令するんじゃなくて、話しかける。「今日こういうことがあって」——それだけで下書きの入口ができます。</p>`,steps:["今夜、AIにこの1問だけ渡してみてください：","「今日あった出来事を1つ話してください。その体験から何を感じましたか？」","AIが聞いてきます。答えるだけ。それだけで下書きの素材が出てきます。"],present:"壁打ち体験1問プロンプト",note:"全5パターンのプロンプトと25分で完成する全プロセスは3,980円noteに書いてあります。まずはこの1問から。"},
-c:{type:"TYPE 3",name:"届かない迷路",keyword:"届かない",title:"「書けているのに読まれない・売れない」あなたへ",body:`<p>書けているのに売れない。これが一番しんどいです。</p><p>でも原因はほぼ決まっています。<strong>届く前に離脱されている</strong>んです。</p><p>プロフィール・フック・導線のどこかに穴があります。書けているなら、設計を直すだけで変わります。</p>`,steps:["プロフィール・投稿フック・note導線を15項目でチェックする","×が付いた項目を1つずつ直す（1日1個でいい）","導線が整ったら、今ある記事に新しい読者が来るようになる"],present:"Threads×note導線チェックリスト15項目",note:""},
-d:{type:"TYPE 4",name:"仕組み化不足",keyword:"仕組み",title:"「売れているのに消耗している」あなたへ",body:`<p>ここまで来たのに、毎晩消耗している。それはもったいないです。</p><p>売上があるということは需要がある。問題は<strong>「自分がいないと止まる設計」</strong>になっていることです。</p><p>夜1時間の最終形は「承認するだけ」の状態です。</p>`,steps:["「今どのPhaseにいるか」を全体マップで確認する","抜けているPhaseを1つ特定する","そのPhaseだけを今週埋める"],present:"夜1時間設計メソッド全体マップ",note:""}
+a:{type:"TYPE 1",name:"何から始めれば…",keyword:"テーマ",title:"「何を始めればいいか分からない」あなたへ",body:`<p>これは「センスの問題」でも「あなたに何もない」わけでもありません。</p><p>動けない理由は、<strong>今の自分がどこにいるか見えていないから</strong>です。</p><p>「何を始めるか」を決める前に「自分は今どのステージか」が分かると、迷いが消えます。</p>`,steps:["「発信ステージ診断シート」で今の自分のステージを確認する","自分のステージで「次にやること1つ」を特定する","それだけやる。何を始めるかは、ステージが分かってから"],present:"発信ステージ診断シート",note:"もっと詳しく知りたくなったら、300円noteに全部書いてあります。"},
+b:{type:"TYPE 2",name:"動けない壁",keyword:"書けない",title:"「やりたいことはある。でも動けない」あなたへ",body:`<p>「動こうとすると止まる」——これ、意志の問題じゃないです。</p><p>止まるのは、<strong>最初の一歩が大きすぎるから</strong>です。</p><p>大げさに始めなくていい。夜に30分だけ、AIに「今日あったこと」を話しかけるだけで、動き始められます。</p>`,steps:["今夜、AIにこの1問だけ渡してみてください：","「今日あった出来事を1つ話してください。その体験から何を感じましたか？」","答えるだけ。それだけで最初の一歩になります。"],present:"壁打ち体験1問プロンプト",note:"全5パターンのプロンプトと25分で完成する全プロセスは3,980円noteに書いてあります。まずはこの1問から。"},
+c:{type:"TYPE 3",name:"成果が出ない",keyword:"届かない",title:"「動いてるのに結果が出ない」あなたへ",body:`<p>動いてるのに成果が出ない。これが一番しんどいです。</p><p>でも原因はほぼ決まっています。<strong>届く前に離脱されている</strong>んです。</p><p>やってること自体は間違ってない。届け方を直すだけで変わります。</p>`,steps:["プロフィール・投稿・導線を15項目でチェックする","×が付いた項目を1つずつ直す（1日1個でいい）","届け方が整ったら、同じことをしても結果が変わる"],present:"導線チェックリスト15項目",note:""},
+d:{type:"TYPE 4",name:"消耗してる",keyword:"仕組み",title:"「成果は出てる。でも消耗してる」あなたへ",body:`<p>ここまで来たのに、毎晩消耗している。それはもったいないです。</p><p>成果が出ているということは、やり方は合ってる。問題は<strong>「自分がいないと止まる状態」</strong>になっていることです。</p><p>最終形は「確認するだけ」の状態です。</p>`,steps:["「今どのフェーズにいるか」を全体マップで確認する","抜けているフェーズを1つ特定する","そのフェーズだけを今週埋める"],present:"全体マップ（フェーズ1〜5）",note:""}
 };
 
 let current = 0;
 let answers = {a:0,b:0,c:0,d:0};
+let history = [];
 
 function startQuiz(){
 document.getElementById('intro').style.display='none';
@@ -142,24 +125,35 @@ const q = questions[current];
 const card = document.createElement('div');
 card.className = 'question-card active';
 card.innerHTML = `
-<p class="q-number">Q${current+1} / 20</p>
+<p class="q-number">Q${current+1} / 10</p>
 <p class="q-text">${q.q}</p>
 <button class="option" onclick="answer('a')">${q.a}</button>
 <button class="option" onclick="answer('b')">${q.b}</button>
 <button class="option" onclick="answer('c')">${q.c}</button>
 <button class="option" onclick="answer('d')">${q.d}</button>
+${current > 0 ? '<button class="back-btn" onclick="goBack()">← 前の質問に戻る</button>' : ''}
 `;
 quiz.appendChild(card);
-document.getElementById('progressText').textContent = `QUESTION ${current+1} / 20`;
-document.getElementById('progressBar').style.width = ((current+1)/20*100)+'%';
+document.getElementById('progressText').textContent = `QUESTION ${current+1} / 10`;
+document.getElementById('progressBar').style.width = ((current+1)/10*100)+'%';
 window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function answer(choice){
+history.push(choice);
 answers[choice]++;
 current++;
-if(current < 20){renderQuestion();}
+if(current < 10){renderQuestion();}
 else{showResult();}
+}
+
+function goBack(){
+if(current > 0){
+current--;
+const prev = history.pop();
+answers[prev]--;
+renderQuestion();
+}
 }
 
 function showResult(){
