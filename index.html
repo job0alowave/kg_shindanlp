@@ -3,187 +3,849 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>あなたが止まる原因診断 | 10問・1分</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<title>夜1時間、どこで詰まっていますか？ | 4タイプ診断</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans JP',sans-serif;background:#0a0a0a;color:#e8e6e1;line-height:1.9;-webkit-font-smoothing:antialiased}
-.container{max-width:560px;margin:0 auto;padding:24px 20px 100px}
-.progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#1d9e75,#5dcaa5);transition:width .4s ease;z-index:100}
-.progress-text{text-align:center;font-size:12px;color:#5a5a5a;margin-bottom:20px;letter-spacing:.5px}
-h1{font-size:24px;font-weight:700;text-align:center;margin:48px 0 12px;line-height:1.5;letter-spacing:-.5px}
-.subtitle{text-align:center;color:#5a5a5a;font-size:13px;margin-bottom:48px;letter-spacing:1px}
-.profile{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px}
-.profile img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #222}
-.profile-name{font-size:12px;color:#5a5a5a;letter-spacing:.5px}
-.intro-lead{font-size:15px;line-height:2;margin-bottom:32px;color:#b0ada6}
-.intro-lead p{margin-bottom:14px}
-.type-list{margin:28px 0 40px;border:1px solid #1a1a1a;border-radius:16px;overflow:hidden;background:#111}
-.type-item{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #1a1a1a;font-size:13px;color:#b0ada6}
-.type-item:last-child{border-bottom:none}
-.type-badge{flex-shrink:0;background:#0f2e22;color:#1d9e75;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;letter-spacing:.5px}
-.time-note{text-align:center;color:#3a3a3a;font-size:12px;margin-bottom:24px;letter-spacing:.5px}
-.start-btn{display:block;width:100%;background:#1d9e75;color:#fff;font-size:15px;font-weight:500;padding:18px;border:none;border-radius:14px;cursor:pointer;transition:all .3s;letter-spacing:.5px}
-.start-btn:hover{background:#24b888;transform:translateY(-1px)}
-.question-card{background:#111;border:1px solid #1a1a1a;border-radius:16px;padding:28px 24px;margin-bottom:16px;display:none}
-.question-card.active{display:block}
-.q-number{font-size:11px;color:#1d9e75;font-weight:500;margin-bottom:12px;letter-spacing:1px}
-.q-text{font-size:16px;font-weight:500;margin-bottom:24px;line-height:1.7;color:#e8e6e1}
-.option{display:block;width:100%;text-align:left;background:#0a0a0a;border:1px solid #222;border-radius:12px;padding:16px 18px;margin-bottom:10px;font-size:13px;line-height:1.7;color:#b0ada6;cursor:pointer;transition:all .2s}
-.option:hover{border-color:#1d9e75;background:#0f2e22;color:#e8e6e1}
-.back-btn{display:inline-block;margin-top:12px;padding:10px 20px;font-size:12px;color:#5a5a5a;background:none;border:1px solid #222;border-radius:8px;cursor:pointer;transition:all .2s;letter-spacing:.5px}
-.back-btn:hover{color:#b0ada6;border-color:#444}
-#result{display:none}
-.result-card{background:#111;border:1px solid #1a1a1a;border-radius:16px;padding:36px 28px;margin-bottom:28px}
-.result-type{font-size:11px;color:#1d9e75;font-weight:500;margin-bottom:8px;letter-spacing:1px}
-.result-title{font-size:20px;font-weight:700;margin-bottom:24px;line-height:1.5;letter-spacing:-.3px}
-.result-body{font-size:14px;line-height:2;color:#b0ada6}
-.result-body p{margin-bottom:18px}
-.result-body strong{color:#e8e6e1;font-weight:500}
-.result-steps{background:#0a0a0a;border:1px solid #1a1a1a;border-radius:12px;padding:24px;margin:24px 0}
-.result-steps p{font-weight:500;margin-bottom:14px;font-size:13px;color:#1d9e75;letter-spacing:.5px}
-.result-steps li{margin-bottom:10px;font-size:13px;line-height:1.8;color:#b0ada6}
-.result-note{font-size:13px;color:#5a5a5a;margin-top:16px}
-.cta-box{background:linear-gradient(135deg,#0f3d2e,#1d9e75);border-radius:16px;padding:36px 28px;text-align:center;margin-top:36px}
-.cta-profile{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px}
-.cta-profile img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2)}
-.cta-profile span{color:rgba(255,255,255,.8);font-size:13px}
-.cta-box p{color:#fff;font-size:15px;margin-bottom:20px;line-height:1.8;font-weight:300}
-.cta-btn{display:inline-block;background:#fff;color:#0f3d2e;font-size:15px;font-weight:700;padding:16px 48px;border-radius:50px;text-decoration:none;transition:all .3s;letter-spacing:.5px}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.3)}
-.cta-note{text-align:center;color:#5a5a5a;font-size:12px;margin-top:20px;line-height:1.8}
-.cta-note strong{color:#b0ada6;font-weight:500}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --espresso: #1c1208;
+  --espresso-mid: #2e1e10;
+  --accent: #c4705a;
+  --accent-dark: #a85844;
+  --accent-light: #f5ede9;
+  --body-bg: #f7f4f0;
+  --white: #ffffff;
+  --text: #1a1614;
+  --text-mid: #6b5e57;
+  --text-light: #a8978e;
+  --border: #e5ddd6;
+  --shadow: 0 1px 4px rgba(28,18,8,.06), 0 4px 18px rgba(28,18,8,.07);
+  --shadow-hover: 0 4px 14px rgba(196,112,90,.22);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic',sans-serif;
+  background: var(--body-bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(150deg, var(--espresso) 0%, var(--espresso-mid) 100%);
+  color: #fff;
+  padding: 56px 24px 52px;
+  text-align: center;
+}
+.hero-kicker {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: .12em;
+  font-weight: 700;
+  color: #e8c4b4;
+  border: 1px solid rgba(196,112,90,.5);
+  border-radius: 2px;
+  padding: 3px 12px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+  margin-bottom: 16px;
+  color: #fff;
+}
+.hero h1 em {
+  font-style: normal;
+  color: #e8a990;
+}
+.hero-sub {
+  font-size: 13px;
+  color: #c8b8ae;
+  line-height: 1.85;
+  max-width: 400px;
+  margin: 0 auto 32px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  font-size: 12px;
+  color: #a8948a;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.hero-meta-item::before {
+  content: '✓';
+  color: #e8a990;
+  font-weight: 700;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin: 28px auto 24px;
+  padding: 15px 40px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: .06em;
+  box-shadow: 0 4px 18px rgba(196,112,90,.45);
+  transition: opacity .15s, transform .1s;
+}
+.hero-btn:hover { opacity: .9; transform: translateY(-1px); }
+
+/* ── CONTENT WRAP ── */
+.content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px 80px;
+}
+
+/* ── PROGRESS ── */
+.progress-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.progress-info {
+  min-width: 60px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.progress-num {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.progress-denom {
+  font-size: 11px;
+  color: var(--text-light);
+}
+.progress-bar-wrap { flex: 1; }
+.progress-label {
+  font-size: 11px;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+}
+.progress-track {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+  border-radius: 99px;
+  width: 0%;
+  transition: width .35s ease;
+}
+
+/* ── BLOCK HEADING ── */
+.block-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 36px 0 20px;
+}
+.block-num {
+  width: 28px; height: 28px;
+  background: var(--espresso);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.block-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--espresso);
+  letter-spacing: .04em;
+}
+
+/* ── QUESTION CARD ── */
+.q-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.q-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.q-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: 4px;
+  padding: 2px 8px;
+  letter-spacing: .05em;
+}
+.q-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opt input[type="radio"] { display: none; }
+.opt label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-mid);
+  background: #fafafa;
+  transition: all .15s;
+}
+.opt label:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--text);
+  box-shadow: var(--shadow-hover);
+}
+.opt input:checked + label {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--text);
+  font-weight: 600;
+}
+.opt-key {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--text-mid);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all .15s;
+}
+.opt input:checked + label .opt-key,
+.opt label:hover .opt-key {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── SUBMIT ── */
+.submit-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px 24px;
+  margin-top: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.submit-card p {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+.btn-submit {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: .04em;
+  box-shadow: 0 4px 14px rgba(196,112,90,.4);
+  transition: opacity .15s, transform .1s;
+}
+.btn-submit:hover { opacity: .92; transform: translateY(-1px); }
+.btn-submit:disabled {
+  background: #d1d5db;
+  box-shadow: none;
+  cursor: default;
+  transform: none;
+  opacity: 1;
+}
+.submit-note {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+/* ── RESULT ── */
+#result { display: none; }
+
+.result-hero {
+  background: linear-gradient(150deg, var(--espresso) 0%, var(--espresso-mid) 100%);
+  color: #fff;
+  padding: 48px 24px 44px;
+  text-align: center;
+}
+.result-kicker {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: .1em;
+  font-weight: 700;
+  color: #e8c4b4;
+  border: 1px solid rgba(196,112,90,.5);
+  border-radius: 2px;
+  padding: 3px 12px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.result-hero h2 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.result-hero p { font-size: 13px; color: #c8b8ae; }
+
+.score-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0 0;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+}
+.score-cell {
+  text-align: center;
+  padding: 12px 4px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+}
+.score-cell.winner {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+.score-n {
+  font-size: 24px;
+  font-weight: 800;
+  color: #d1c8c2;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.score-cell.winner .score-n { color: var(--accent); }
+.score-l { font-size: 10px; color: var(--text-light); line-height: 1.3; }
+.score-cell.winner .score-l { color: var(--text-mid); font-weight: 600; }
+
+.result-body-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px 24px;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--text-mid);
+}
+.result-body-card p { margin-bottom: 14px; }
+.result-body-card p:last-child { margin-bottom: 0; }
+.result-body-card strong { color: var(--text); }
+
+.action-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+}
+.action-card-head {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.action-card ol {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.action-card li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text);
+}
+.action-card li::before {
+  content: attr(data-n);
+  min-width: 22px; height: 22px;
+  background: var(--espresso);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.cta-card {
+  background: linear-gradient(150deg, var(--espresso), var(--espresso-mid));
+  border-radius: 12px;
+  padding: 32px 24px;
+  margin-top: 16px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(28,18,8,.28);
+}
+.cta-eyebrow {
+  font-size: 11px;
+  color: #e8c4b4;
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.cta-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+.btn-line {
+  display: inline-block;
+  background: #06c755;
+  color: #fff;
+  border-radius: 8px;
+  padding: 15px 40px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: .04em;
+  box-shadow: 0 4px 14px rgba(6,199,85,.4);
+  transition: opacity .15s, transform .1s;
+  width: 100%;
+  max-width: 280px;
+  display: block;
+  margin: 0 auto;
+}
+.btn-line:hover { opacity: .9; transform: translateY(-1px); }
+.cta-note { font-size: 11px; color: #a8948a; margin-top: 12px; }
+
+.btn-retry {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 13px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all .15s;
+  box-shadow: var(--shadow);
+}
+.btn-retry:hover { color: var(--text-mid); border-color: #9ca3af; }
 </style>
 </head>
 <body>
-<div class="progress-bar" id="progressBar"></div>
-<div class="container">
 
-<div id="intro">
-<div class="profile"><img src="icon.jpeg" alt="けーじー"><span class="profile-name">けーじー</span></div>
-<h1>3ヶ月止まってた原因は、<br>努力不足じゃなかった。</h1>
-<p class="subtitle">あなたが今動けない理由を、<br>10問・1分で診断します。</p>
-<div class="intro-lead">
-<p>実は、動けない理由は人によって違います。</p>
-</div>
-<div class="type-list">
-<div class="type-item"><span class="type-badge">TYPE 1</span>何をすればいいか分からない</div>
-<div class="type-item"><span class="type-badge">TYPE 2</span>やりたいことはあるのに続かない</div>
-<div class="type-item"><span class="type-badge">TYPE 3</span>頑張ってるのに結果が出ない</div>
-<div class="type-item"><span class="type-badge">TYPE 4</span>成果は出ても毎日しんどい</div>
-</div>
-<p class="time-note">10問・約1分で完了</p>
-<button class="start-btn" onclick="startQuiz()">止まる原因を診断する</button>
+<!-- QUIZ -->
+<div id="quiz">
+
+  <div class="hero">
+    <div class="hero-kicker">無料 · 約3分 · タイプ別プレゼントあり</div>
+    <h1>夜1時間が<br><em>空回りしているのは、<br>どこで詰まっているから？</em></h1>
+    <p class="hero-sub">夫の本業を超えたいのに、夜の1時間が結果につながらない。<br>4タイプ診断で、今日止まっている場所を特定します。</p>
+    <a href="#q1anchor" class="hero-btn">診断をはじめる →</a>
+    <div class="hero-meta">
+      <span class="hero-meta-item">登録不要・無料</span>
+      <span class="hero-meta-item">結果後にプレゼント</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="progress-card">
+      <div class="progress-info">
+        <div class="progress-num" id="pNum">0</div>
+        <div class="progress-denom">/ 20問</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-label" id="pLabel">最初の質問からはじめましょう</div>
+        <div class="progress-track"><div class="progress-fill" id="pFill"></div></div>
+      </div>
+    </div>
+
+    <form id="qForm">
+
+      <div class="block-head"><div class="block-num">1</div><div class="block-label">今の発信状況</div></div>
+
+      <div class="q-card" id="q1anchor">
+        <div class="q-meta"><span class="q-badge">Q1</span></div>
+        <div class="q-text">今、定期的に発信できていますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q1" value="A" id="q1a"><label for="q1a"><span class="opt-key">A</span>何を発信すればいいかわからず、投稿がほぼゼロ</label></div>
+          <div class="opt"><input type="radio" name="q1" value="B" id="q1b"><label for="q1b"><span class="opt-key">B</span>投稿しようとするたびに手が止まって、結局書けていない</label></div>
+          <div class="opt"><input type="radio" name="q1" value="C" id="q1c"><label for="q1c"><span class="opt-key">C</span>週数回は投稿できているが、反応がほぼない</label></div>
+          <div class="opt"><input type="radio" name="q1" value="D" id="q1d"><label for="q1d"><span class="opt-key">D</span>投稿も売上も出ているが、作業量が多くて疲れている</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q2</span></div>
+        <div class="q-text">Threads・noteのプロフィールを他人に見せたとき、どう感じますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q2" value="A" id="q2a"><label for="q2a"><span class="opt-key">A</span>「自分が何者か」を書けていない。テーマが決まっていないので書けない</label></div>
+          <div class="opt"><input type="radio" name="q2" value="B" id="q2b"><label for="q2b"><span class="opt-key">B</span>書こうとしたが、何度も書き直して中途半端のまま放置している</label></div>
+          <div class="opt"><input type="radio" name="q2" value="C" id="q2c"><label for="q2c"><span class="opt-key">C</span>プロフィールは書いたが、フォロワーが増えない・クリックされない</label></div>
+          <div class="opt"><input type="radio" name="q2" value="D" id="q2d"><label for="q2d"><span class="opt-key">D</span>整っているほうだと思うが、毎回手動で微調整していて手間がかかる</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q3</span></div>
+        <div class="q-text">直近1ヶ月でnoteを公開した本数は？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q3" value="A" id="q3a"><label for="q3a"><span class="opt-key">A</span>0本。テーマが決まらないので書けていない</label></div>
+          <div class="opt"><input type="radio" name="q3" value="B" id="q3b"><label for="q3b"><span class="opt-key">B</span>書きかけが3本以上あるが、完成・公開できていない</label></div>
+          <div class="opt"><input type="radio" name="q3" value="C" id="q3c"><label for="q3c"><span class="opt-key">C</span>3本以上公開できているが、売上はほぼゼロ</label></div>
+          <div class="opt"><input type="radio" name="q3" value="D" id="q3d"><label for="q3d"><span class="opt-key">D</span>売れている記事はあるが、次の商品設計に手が回っていない</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q4</span></div>
+        <div class="q-text">発信テーマについて、今どんな状態ですか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q4" value="A" id="q4a"><label for="q4a"><span class="opt-key">A</span>複数の候補があって絞れない。または候補すら思い浮かばない</label></div>
+          <div class="opt"><input type="radio" name="q4" value="B" id="q4b"><label for="q4b"><span class="opt-key">B</span>「これを書こう」と決めても、いざ書くと手が止まる</label></div>
+          <div class="opt"><input type="radio" name="q4" value="C" id="q4c"><label for="q4c"><span class="opt-key">C</span>テーマは決まっていて書けているが、刺さっている感じがしない</label></div>
+          <div class="opt"><input type="radio" name="q4" value="D" id="q4d"><label for="q4d"><span class="opt-key">D</span>テーマは確立しているが、一つひとつの記事に時間がかかりすぎる</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q5</span></div>
+        <div class="q-text">「夜1時間の作業」で実際にやっていることは？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q5" value="A" id="q5a"><label for="q5a"><span class="opt-key">A</span>何をすればいいかわからず、調べるだけで終わってしまう</label></div>
+          <div class="opt"><input type="radio" name="q5" value="B" id="q5b"><label for="q5b"><span class="opt-key">B</span>書こうとするが、導入部分で詰まって1時間が過ぎる</label></div>
+          <div class="opt"><input type="radio" name="q5" value="C" id="q5c"><label for="q5c"><span class="opt-key">C</span>投稿・記事は書けているが、反応を確認してため息をついて終わる</label></div>
+          <div class="opt"><input type="radio" name="q5" value="D" id="q5d"><label for="q5d"><span class="opt-key">D</span>作業は進んでいるが、毎晩同じような作業の繰り返しになっている</label></div>
+        </div>
+      </div>
+
+      <div class="block-head"><div class="block-num">2</div><div class="block-label">AIの使い方</div></div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q6</span></div>
+        <div class="q-text">AIを使ったことがありますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q6" value="A" id="q6a"><label for="q6a"><span class="opt-key">A</span>使ってみたが、何を聞けばいいかわからず途中でやめた</label></div>
+          <div class="opt"><input type="radio" name="q6" value="B" id="q6b"><label for="q6b"><span class="opt-key">B</span>アイデア出しや調査には使えるが、文章を書かせると自分らしくない</label></div>
+          <div class="opt"><input type="radio" name="q6" value="C" id="q6c"><label for="q6c"><span class="opt-key">C</span>文章生成には使えるが、集客・導線設計には活かせていない</label></div>
+          <div class="opt"><input type="radio" name="q6" value="D" id="q6d"><label for="q6d"><span class="opt-key">D</span>生成は使いこなしているが、仕組みとして自動化できていない</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q7</span></div>
+        <div class="q-text">AIに「自分のテーマで記事を書いて」と頼んだとき、どうなりましたか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q7" value="A" id="q7a"><label for="q7a"><span class="opt-key">A</span>テーマ自体が決まっていないので、質問できなかった</label></div>
+          <div class="opt"><input type="radio" name="q7" value="B" id="q7b"><label for="q7b"><span class="opt-key">B</span>書いてもらったが、「自分の言葉じゃない」と感じてボツにした</label></div>
+          <div class="opt"><input type="radio" name="q7" value="C" id="q7c"><label for="q7c"><span class="opt-key">C</span>記事は完成したが、読んでもらえなかった・売れなかった</label></div>
+          <div class="opt"><input type="radio" name="q7" value="D" id="q7d"><label for="q7d"><span class="opt-key">D</span>量産できるようになったが、クオリティのばらつきが気になる</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q8</span></div>
+        <div class="q-text">AIへの指示（プロンプト）について、今どんな状態ですか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q8" value="A" id="q8a"><label for="q8a"><span class="opt-key">A</span>プロンプトという言葉は知っているが、うまく使えた経験がない</label></div>
+          <div class="opt"><input type="radio" name="q8" value="B" id="q8b"><label for="q8b"><span class="opt-key">B</span>プロンプトを工夫しているが、毎回出力がバラバラで安定しない</label></div>
+          <div class="opt"><input type="radio" name="q8" value="C" id="q8c"><label for="q8c"><span class="opt-key">C</span>プロンプトは安定してきたが、導線設計や集客には応用できていない</label></div>
+          <div class="opt"><input type="radio" name="q8" value="D" id="q8d"><label for="q8d"><span class="opt-key">D</span>プロンプトのテンプレートは持っているが、更新・管理が手間になってきた</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q9</span></div>
+        <div class="q-text">AIを「壁打ち相手」として使ったことがありますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q9" value="A" id="q9a"><label for="q9a"><span class="opt-key">A</span>壁打ちという使い方を知らなかった、またはやり方がわからない</label></div>
+          <div class="opt"><input type="radio" name="q9" value="B" id="q9b"><label for="q9b"><span class="opt-key">B</span>やってみたが、AIの回答が的外れで途中で諦めた</label></div>
+          <div class="opt"><input type="radio" name="q9" value="C" id="q9c"><label for="q9c"><span class="opt-key">C</span>壁打ちできているが、出てきたアイデアを投稿に活かしきれていない</label></div>
+          <div class="opt"><input type="radio" name="q9" value="D" id="q9d"><label for="q9d"><span class="opt-key">D</span>壁打ちは日常的にできているが、記録・再利用の仕組みがない</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q10</span></div>
+        <div class="q-text">AI活用で「これはうまくいった」と思えた経験がありますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q10" value="A" id="q10a"><label for="q10a"><span class="opt-key">A</span>まだない。何をゴールにすればいいかもわかっていない</label></div>
+          <div class="opt"><input type="radio" name="q10" value="B" id="q10b"><label for="q10b"><span class="opt-key">B</span>一度だけあったが、再現できていない</label></div>
+          <div class="opt"><input type="radio" name="q10" value="C" id="q10c"><label for="q10c"><span class="opt-key">C</span>記事を書く場面では再現できるが、売上につながる場面では再現できていない</label></div>
+          <div class="opt"><input type="radio" name="q10" value="D" id="q10d"><label for="q10d"><span class="opt-key">D</span>再現性はあるが、その作業を自分が毎回やらないといけない状態になっている</label></div>
+        </div>
+      </div>
+
+      <div class="block-head"><div class="block-num">3</div><div class="block-label">時間の使い方</div></div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q11</span></div>
+        <div class="q-text">夜1時間の使い方で、いちばん近い状態は？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q11" value="A" id="q11a"><label for="q11a"><span class="opt-key">A</span>「何をすべきか」が決まらず、調べたり考えたりで終わる</label></div>
+          <div class="opt"><input type="radio" name="q11" value="B" id="q11b"><label for="q11b"><span class="opt-key">B</span>「書く」ことに使いたいが、書けずに終わる</label></div>
+          <div class="opt"><input type="radio" name="q11" value="C" id="q11c"><label for="q11c"><span class="opt-key">C</span>投稿や記事を書くことには使えているが、結果につながっていない</label></div>
+          <div class="opt"><input type="radio" name="q11" value="D" id="q11d"><label for="q11d"><span class="opt-key">D</span>作業自体はできているが、毎晩作業しないと止まる仕組みになっている</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q12</span></div>
+        <div class="q-text">本業・育児・家事以外の時間はどのくらい確保できていますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q12" value="A" id="q12a"><label for="q12a"><span class="opt-key">A</span>平日はほぼゼロ。週末も気づいたら終わっている</label></div>
+          <div class="opt"><input type="radio" name="q12" value="B" id="q12b"><label for="q12b"><span class="opt-key">B</span>夜1時間は確保できるが、頭が疲れていて集中力が続かない</label></div>
+          <div class="opt"><input type="radio" name="q12" value="C" id="q12c"><label for="q12c"><span class="opt-key">C</span>夜1〜2時間は使えているが、作業の優先順位が毎回バラバラになる</label></div>
+          <div class="opt"><input type="radio" name="q12" value="D" id="q12d"><label for="q12d"><span class="opt-key">D</span>時間の確保はできているが、作業が増えていて時間が足りなくなってきた</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q13</span></div>
+        <div class="q-text">「今夜何をすればいいか」を決めるのに、どのくらい時間がかかりますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q13" value="A" id="q13a"><label for="q13a"><span class="opt-key">A</span>毎晩30分以上かかる。または決められないまま終わることが多い</label></div>
+          <div class="opt"><input type="radio" name="q13" value="B" id="q13b"><label for="q13b"><span class="opt-key">B</span>やることは決まるが、いざ始めると別の作業に迷い込む</label></div>
+          <div class="opt"><input type="radio" name="q13" value="C" id="q13c"><label for="q13c"><span class="opt-key">C</span>決めること自体は早いが、結果につながる作業を選べているか不安</label></div>
+          <div class="opt"><input type="radio" name="q13" value="D" id="q13d"><label for="q13d"><span class="opt-key">D</span>決め方のルーティンはあるが、それ自体の見直しに時間を使えていない</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q14</span></div>
+        <div class="q-text">「夜1時間」の理想の使い方として、近いのはどれですか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q14" value="A" id="q14a"><label for="q14a"><span class="opt-key">A</span>まず「方向性を決める」ことに使いたい</label></div>
+          <div class="opt"><input type="radio" name="q14" value="B" id="q14b"><label for="q14b"><span class="opt-key">B</span>「書く」ことだけに集中できる状態にしたい</label></div>
+          <div class="opt"><input type="radio" name="q14" value="C" id="q14c"><label for="q14c"><span class="opt-key">C</span>「書く」から「届ける・売る」設計にシフトしたい</label></div>
+          <div class="opt"><input type="radio" name="q14" value="D" id="q14d"><label for="q14d"><span class="opt-key">D</span>「判断・承認するだけ」にして、作業は仕組みに任せたい</label></div>
+        </div>
+      </div>
+
+      <div class="block-head"><div class="block-num">4</div><div class="block-label">商品設計</div></div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q15</span></div>
+        <div class="q-text">今、販売している商品・サービスはありますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q15" value="A" id="q15a"><label for="q15a"><span class="opt-key">A</span>ない。何を売ればいいかもわからない</label></div>
+          <div class="opt"><input type="radio" name="q15" value="B" id="q15b"><label for="q15b"><span class="opt-key">B</span>作りかけのnote・コンテンツはあるが、完成・公開できていない</label></div>
+          <div class="opt"><input type="radio" name="q15" value="C" id="q15c"><label for="q15c"><span class="opt-key">C</span>公開しているが、ほぼ売れていない</label></div>
+          <div class="opt"><input type="radio" name="q15" value="D" id="q15d"><label for="q15d"><span class="opt-key">D</span>売れているが、バリエーションや価格帯の設計を見直したい</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q16</span></div>
+        <div class="q-text">「自分の経験・知識をコンテンツにする」イメージがありますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q16" value="A" id="q16a"><label for="q16a"><span class="opt-key">A</span>自分には売れるものがないと思っている</label></div>
+          <div class="opt"><input type="radio" name="q16" value="B" id="q16b"><label for="q16b"><span class="opt-key">B</span>何かあるはずだと思っているが、言語化できていない</label></div>
+          <div class="opt"><input type="radio" name="q16" value="C" id="q16c"><label for="q16c"><span class="opt-key">C</span>言語化はできているが、購入してもらえるかどうか自信がない</label></div>
+          <div class="opt"><input type="radio" name="q16" value="D" id="q16d"><label for="q16d"><span class="opt-key">D</span>商品はあるが、導線・ステップ設計がまだ粗い</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q17</span></div>
+        <div class="q-text">「300円のnote」を今すぐ出版するとしたら、いちばん近い障壁は？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q17" value="A" id="q17a"><label for="q17a"><span class="opt-key">A</span>テーマが決まらないので何も書けない</label></div>
+          <div class="opt"><input type="radio" name="q17" value="B" id="q17b"><label for="q17b"><span class="opt-key">B</span>書こうとするとどこから始めればいいかわからなくなる</label></div>
+          <div class="opt"><input type="radio" name="q17" value="C" id="q17c"><label for="q17c"><span class="opt-key">C</span>書いて出したが、誰にも見つけてもらえなかった</label></div>
+          <div class="opt"><input type="radio" name="q17" value="D" id="q17d"><label for="q17d"><span class="opt-key">D</span>出せるが、毎回ゼロから書いていて消耗している</label></div>
+        </div>
+      </div>
+
+      <div class="block-head"><div class="block-num">5</div><div class="block-label">モチベーション・継続</div></div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q18</span></div>
+        <div class="q-text">「やめようかな」と思ったのはどんな瞬間ですか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q18" value="A" id="q18a"><label for="q18a"><span class="opt-key">A</span>最初から何をすればいいかわからなくて、そもそもスタートできていない</label></div>
+          <div class="opt"><input type="radio" name="q18" value="B" id="q18b"><label for="q18b"><span class="opt-key">B</span>書こうとするたびに手が止まって、「自分には向いていないのかも」と感じたとき</label></div>
+          <div class="opt"><input type="radio" name="q18" value="C" id="q18c"><label for="q18c"><span class="opt-key">C</span>投稿も記事も書けているのに、まったく反応がなかったとき</label></div>
+          <div class="opt"><input type="radio" name="q18" value="D" id="q18d"><label for="q18d"><span class="opt-key">D</span>作業量が多すぎて、「これが続くのか」と感じたとき</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q19</span></div>
+        <div class="q-text">3ヶ月後に「夫の本業を超えた」状態になるには、今何が足りないと感じますか？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q19" value="A" id="q19a"><label for="q19a"><span class="opt-key">A</span>発信テーマとポジションが決まっていない</label></div>
+          <div class="opt"><input type="radio" name="q19" value="B" id="q19b"><label for="q19b"><span class="opt-key">B</span>書き続ける仕組みと、書き方のパターンが手元にない</label></div>
+          <div class="opt"><input type="radio" name="q19" value="C" id="q19c"><label for="q19c"><span class="opt-key">C</span>書けているのに届かない理由がわかっていない</label></div>
+          <div class="opt"><input type="radio" name="q19" value="D" id="q19d"><label for="q19d"><span class="opt-key">D</span>仕組みを自動化して、自分が消耗しない設計が整っていない</label></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-meta"><span class="q-badge">Q20</span></div>
+        <div class="q-text">このページを見ている今、いちばん正直な気持ちは？</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="q20" value="A" id="q20a"><label for="q20a"><span class="opt-key">A</span>「何から始めればいいか教えてほしい」</label></div>
+          <div class="opt"><input type="radio" name="q20" value="B" id="q20b"><label for="q20b"><span class="opt-key">B</span>「とにかく書けるようになりたい。書き方を教えてほしい」</label></div>
+          <div class="opt"><input type="radio" name="q20" value="C" id="q20c"><label for="q20c"><span class="opt-key">C</span>「書けているのになぜ売れないのか、原因を知りたい」</label></div>
+          <div class="opt"><input type="radio" name="q20" value="D" id="q20d"><label for="q20d"><span class="opt-key">D</span>「もっとラクに成果を出す設計を知りたい」</label></div>
+        </div>
+      </div>
+
+      <div class="submit-card">
+        <p id="submitHint">全20問に答えると結果が表示されます</p>
+        <button type="button" class="btn-submit" id="submitBtn" onclick="showResult()" disabled>診断結果を見る →</button>
+      </div>
+
+    </form>
+  </div>
 </div>
 
-<div id="quiz" style="display:none">
-<p class="progress-text" id="progressText"></p>
-</div>
+<!-- RESULT -->
+<div id="result">
+  <div class="result-hero">
+    <div class="result-kicker" id="rKicker"></div>
+    <h2 id="rTitle"></h2>
+    <p id="rSub"></p>
+  </div>
 
-<div id="result"></div>
-
+  <div class="content">
+    <div class="score-card" id="scoreCard"></div>
+    <div class="result-body-card" id="rBody"></div>
+    <div class="action-card">
+      <div class="action-card-head">今のあなたがやるべきこと</div>
+      <ol id="rActions"></ol>
+    </div>
+    <div class="cta-card">
+      <div class="cta-eyebrow">無料プレゼント</div>
+      <div class="cta-title" id="rGift"></div>
+      <a href="https://lin.ee/XXXXXXX" class="btn-line">LINEで受け取る（無料）</a>
+      <div class="cta-note">登録後すぐにお届けします</div>
+    </div>
+    <button class="btn-retry" onclick="retry()">もう一度診断する</button>
+  </div>
 </div>
 
 <script>
-const questions = [
-{q:"子どもが寝たあとの時間、何をしていますか？",a:"スマホをなんとなく見て終わる",b:"やりたいことはあるけど手が動かない",c:"作業はしてるけど成果が出ない",d:"作業してるけど毎晩疲れる"},
-{q:"「何かを始めたい」と思ったことはありますか？",a:"思うけど、何を始めればいいか分からない",b:"やりたいことはあるけど、最初の一歩が出ない",c:"始めてるけど、うまくいってない",d:"やってるけど、続けるのがしんどい"},
-{q:"自分の時間、1日にどのくらいありますか？",a:"ほぼゼロ。考える余裕もない",b:"夜に30分〜1時間あるけど、使い方が分からない",c:"時間は確保できてるけど、結果につながらない",d:"時間はあるけど、やることが多すぎて足りない"},
-{q:"AIを使ったことはありますか？",a:"聞いたことはあるけど触ったことがない",b:"使ってみたけど、うまく使えなかった",c:"使えてるけど、それをお金にする方法が分からない",d:"使いこなしてるけど、毎回自分でやらないといけない"},
-{q:"「自分にできることがある」と思えますか？",a:"正直、何もないと思ってる",b:"何かあるはずだけど、言葉にできない",c:"できることはあるけど、求められてる感じがしない",d:"できることは分かってるけど、時間が足りない"},
-{q:"収入について、正直な気持ちは？",a:"もう1つ収入源がほしいけど、何をすれば…",b:"やりたいことはあるけど、お金になる気がしない",c:"少し動いてるけど、まだ1円にもなってない",d:"お金にはなってるけど、不安定で消耗してる"},
-{q:"夫や家族に「やりたいこと」を話せていますか？",a:"まだ自分でも分かってないから話せない",b:"心の中にはあるけど、笑われそうで言えない",c:"話してるけど、「で、いくらになったの」と聞かれる",d:"理解してもらえてるけど、家事との両立がきつい"},
-{q:"今の一番の壁は？",a:"何をすればいいか分からないこと",b:"分かってるのに動けないこと",c:"動いてるのに結果が出ないこと",d:"結果は出てるのに楽にならないこと"},
-{q:"3ヶ月後、どうなっていたい？",a:"「これをやる」が決まっていたい",b:"毎週何かを作れる自分になりたい",c:"作ったものが誰かに届いていたい",d:"自分がいなくても回る仕組みがほしい"},
-{q:"今、いちばん正直な気持ちは？",a:"何から始めればいいか教えてほしい",b:"とにかく最初の一歩を踏み出したい",c:"やってるのに報われない理由を知りたい",d:"もっとラクに続ける方法を知りたい"}
-];
-
-const results = {
-a:{type:"TYPE 1",name:"何から始めれば…",keyword:"テーマ",title:"「何を始めればいいか分からない」あなたへ",body:`<p>これは「センスの問題」でも「あなたに何もない」わけでもありません。</p><p>動けない理由は、<strong>今の自分がどこにいるか見えていないから</strong>です。</p><p>「何を始めるか」を決める前に「自分は今どのステージか」が分かると、迷いが消えます。</p>`,steps:["「発信ステージ診断シート」で今の自分のステージを確認する","自分のステージで「次にやること1つ」を特定する","それだけやる。何を始めるかは、ステージが分かってから"],present:"発信ステージ診断シート",note:""},
-b:{type:"TYPE 2",name:"動けない壁",keyword:"書けない",title:"「やりたいことはある。でも動けない」あなたへ",body:`<p>「動こうとすると止まる」——これ、意志の問題じゃないです。</p><p>止まるのは、<strong>最初の一歩が大きすぎるから</strong>です。</p><p>大げさに始めなくていい。夜に30分だけ、AIに「今日あったこと」を話しかけるだけで、動き始められます。</p>`,steps:["今夜、AIにこの1問だけ渡してみてください：","「今日あった出来事を1つ話してください。その体験から何を感じましたか？」","答えるだけ。それだけで最初の一歩になります。"],present:"壁打ち体験1問プロンプト",note:""},
-c:{type:"TYPE 3",name:"成果が出ない",keyword:"届かない",title:"「動いてるのに結果が出ない」あなたへ",body:`<p>動いてるのに成果が出ない。これが一番しんどいです。</p><p>でも原因はほぼ決まっています。<strong>届く前に離脱されている</strong>んです。</p><p>やってること自体は間違ってない。届け方を直すだけで変わります。</p>`,steps:["プロフィール・投稿・導線を15項目でチェックする","×が付いた項目を1つずつ直す（1日1個でいい）","届け方が整ったら、同じことをしても結果が変わる"],present:"導線チェックリスト15項目",note:""},
-d:{type:"TYPE 4",name:"消耗してる",keyword:"仕組み",title:"「成果は出てる。でも消耗してる」あなたへ",body:`<p>ここまで来たのに、毎晩消耗している。それはもったいないです。</p><p>成果が出ているということは、やり方は合ってる。問題は<strong>「自分がいないと止まる状態」</strong>になっていることです。</p><p>最終形は「確認するだけ」の状態です。</p>`,steps:["「今どのフェーズにいるか」を全体マップで確認する","抜けているフェーズを1つ特定する","そのフェーズだけを今週埋める"],present:"全体マップ（フェーズ1〜5）",note:""}
+const DATA = {
+  A:{kicker:'診断結果 — タイプ①',title:'「何を発信すればいいか決まっていない」あなたへ',sub:'センスの問題でも、あなたが特別じゃない問題でもありません。',label:'ジャンル迷子',
+    body:['ジャンルが決まらない理由は、<strong>選び方を知らないまま選ぼうとしているから</strong>です。','「好きなこと・得意なこと・稼げること」の3つが重なる場所を探そうとするほど、迷路にはまります。必要なのはもっとシンプルな問いです。'],
+    actions:['「過去3年で自分がお金を払って解決した悩み」を書き出す','「育てながら誰かに教えてほしかったこと」を書き出す','その2つが重なるポイントに、テーマがある'],
+    gift:'「テーマを決めるワークシート（プロンプト付き）」を受け取る'},
+  B:{kicker:'診断結果 — タイプ②',title:'「テーマはある。でも書けない・続かない」あなたへ',sub:'止まるのは、意志の問題じゃないです。',label:'書けない壁',
+    body:['止まるのは、<strong>頭の中に素材がないまま書こうとしているから</strong>です。','書き始める前にまずAIと話す。今日あったことを3行だけ。「娘がこう言った」——そこから25分で下書きが完成する流れを作れます。書くのではなく、<strong>話して引き出す</strong>。その切り替えで、詰まりが消えます。'],
+    actions:['今夜、AIに「日常の話」をする（テーマは何でもいい）','「この体験から何を感じたか」を一緒に整理してもらう','整理された文章を、自分の言葉に書き直す（5〜10分）'],
+    gift:'「25分下書き完成プロンプト 5パターン」を受け取る'},
+  C:{kicker:'診断結果 — タイプ③',title:'「書けているのに読まれない・売れない」あなたへ',sub:'書けているなら、設計を直すだけで変わります。',label:'届かない迷路',
+    body:['書けているのに売れない。これが一番しんどい詰まり方です。','でも、原因はほぼ決まっています。<strong>届く前に離脱されている</strong>んです。プロフィール・フック・導線のどこかに穴があります。コンテンツを作り直す必要はありません。'],
+    actions:['プロフィール・投稿フック・note導線を15項目でチェックする','×が付いた項目を1つずつ直す（1日1個でいい）','導線が整ったら、今ある記事に新しい人が来るようになる'],
+    gift:'「Threads×note 導線チェックリスト 15項目」を受け取る'},
+  D:{kicker:'診断結果 — タイプ④',title:'「売れているのに消耗している」あなたへ',sub:'ここまで来たのに、毎晩消耗している。それはもったいないです。',label:'仕組み化不足',
+    body:['売上があるということは、需要があるということ。問題は「<strong>自分がいないと止まる設計</strong>」になっていることです。','夜1時間設計メソッドの最終形は、承認するだけの状態です。素材を貯めて、AIが読んで下書きを出して——この設計が完成すると、毎晩作業しなくてよくなります。'],
+    actions:['「今どのPhaseにいるか」を全体マップで確認する','抜けているPhaseを1つ特定する','そのPhaseだけを今週埋める'],
+    gift:'「夜1時間設計メソッド 全体マップ（Phase 1〜5）」を受け取る'}
 };
 
-let current = 0;
-let answers = {a:0,b:0,c:0,d:0};
-let history = [];
-
-function startQuiz(){
-document.getElementById('intro').style.display='none';
-document.getElementById('quiz').style.display='block';
-renderQuestion();
+function updateProgress(){
+  let n=0;
+  for(let i=1;i<=20;i++) if(document.querySelector(`input[name="q${i}"]:checked`)) n++;
+  document.getElementById('pFill').style.width=(n/20*100)+'%';
+  document.getElementById('pNum').textContent=n;
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=n<20;
+  document.getElementById('submitHint').textContent=n<20?`残り ${20-n} 問で診断できます`:'全問完了しました。結果を確認しましょう。';
+  document.getElementById('pLabel').textContent=n<20?`${20-n}問残っています`:'回答完了';
 }
 
-function renderQuestion(){
-const quiz = document.getElementById('quiz');
-const existing = quiz.querySelector('.question-card');
-if(existing) existing.remove();
-const q = questions[current];
-const card = document.createElement('div');
-card.className = 'question-card active';
-card.innerHTML = `
-<p class="q-number">Q${current+1} / 10</p>
-<p class="q-text">${q.q}</p>
-<button class="option" onclick="answer('a')">${q.a}</button>
-<button class="option" onclick="answer('b')">${q.b}</button>
-<button class="option" onclick="answer('c')">${q.c}</button>
-<button class="option" onclick="answer('d')">${q.d}</button>
-${current > 0 ? '<button class="back-btn" onclick="goBack()">← 前の質問に戻る</button>' : ''}
-`;
-quiz.appendChild(card);
-document.getElementById('progressText').textContent = `QUESTION ${current+1} / 10`;
-document.getElementById('progressBar').style.width = ((current+1)/10*100)+'%';
-window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function answer(choice){
-history.push(choice);
-answers[choice]++;
-current++;
-if(current < 10){renderQuestion();}
-else{showResult();}
-}
-
-function goBack(){
-if(current > 0){
-current--;
-const prev = history.pop();
-answers[prev]--;
-renderQuestion();
-}
-}
+document.querySelectorAll('input[type="radio"]').forEach(r=>r.addEventListener('change',updateProgress));
 
 function showResult(){
-document.getElementById('quiz').style.display='none';
-document.getElementById('progressBar').style.width='100%';
-let maxKey = 'a';
-for(let k in answers){if(answers[k] > answers[maxKey]) maxKey = k;}
-const r = results[maxKey];
-const stepsHtml = r.steps.map(s => `<li>${s}</li>`).join('');
-const noteHtml = r.note ? `<p class="result-note">${r.note}</p>` : '';
-document.getElementById('result').style.display='block';
-document.getElementById('result').innerHTML = `
-<div class="result-card">
-<p class="result-type">${r.type}　${r.name}</p>
-<h2 class="result-title">${r.title}</h2>
-<div class="result-body">
-${r.body}
-<div class="result-steps">
-<p>今のあなたがやるべきこと</p>
-<ol>${stepsHtml}</ol>
-</div>
-${noteHtml}
-</div>
-</div>
-<div class="cta-box">
-<div class="cta-profile"><img src="icon.jpeg" alt="けーじー"><span>けーじー</span></div>
-<p>「${r.present}」を<br>LINEで受け取る</p>
-<a href="https://lin.ee/N9yY54n" class="cta-btn">無料で受け取る</a>
-</div>
-<p class="cta-note">登録後「<strong>${r.keyword}</strong>」と送ってください</p>
-`;
-window.scrollTo({top:0,behavior:'smooth'});
+  const s={A:0,B:0,C:0,D:0};
+  for(let i=1;i<=20;i++){const v=document.querySelector(`input[name="q${i}"]:checked`)?.value;if(v)s[v]++;}
+  const max=Math.max(...Object.values(s));
+  const tops=Object.keys(s).filter(k=>s[k]===max);
+  const type=tops.length===1?tops[0]:(document.querySelector('input[name="q20"]:checked')?.value||tops[0]);
+  const d=DATA[type];
+
+  document.getElementById('rKicker').textContent=d.kicker;
+  document.getElementById('rTitle').textContent=d.title;
+  document.getElementById('rSub').textContent=d.sub;
+  document.getElementById('rBody').innerHTML=d.body.map(p=>`<p>${p}</p>`).join('');
+  document.getElementById('rGift').textContent=d.gift;
+
+  const labels={A:'ジャンル迷子',B:'書けない壁',C:'届かない迷路',D:'仕組み化不足'};
+  document.getElementById('scoreCard').innerHTML=['A','B','C','D'].map(k=>
+    `<div class="score-cell${k===type?' winner':''}"><div class="score-n">${s[k]}</div><div class="score-l">${labels[k]}</div></div>`
+  ).join('');
+
+  const ol=document.getElementById('rActions');
+  ol.innerHTML='';
+  d.actions.forEach((a,i)=>{
+    const li=document.createElement('li');
+    li.setAttribute('data-n',i+1);
+    li.textContent=a;
+    ol.appendChild(li);
+  });
+
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('result').style.display='block';
+  window.scrollTo(0,0);
+}
+
+function retry(){
+  document.querySelectorAll('input[type="radio"]').forEach(r=>r.checked=false);
+  updateProgress();
+  document.getElementById('result').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  window.scrollTo(0,0);
 }
 </script>
 </body>
